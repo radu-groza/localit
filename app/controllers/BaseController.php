@@ -2,6 +2,7 @@
 
 class BaseController extends Controller {
 
+    protected $title = "LOCALit";
 	/**
 	 * Setup the layout used by the controller.
 	 *
@@ -15,4 +16,13 @@ class BaseController extends Controller {
 		}
 	}
 
+    /**
+     * return the BASE META TITLE
+     *
+     * @return string
+     */
+    protected function getTitle()
+    {
+        return $this->title;
+    }
 }

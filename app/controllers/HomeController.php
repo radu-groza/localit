@@ -18,12 +18,13 @@ class HomeController extends BaseController
 
     public function showWelcome()
     {
+        /*
         $fb = OAuth::consumer('Facebook');
         $url = $fb->getAuthorizationUri();
 
         // return to facebook login url
         return Redirect::to((string)$url);
-
+        */
         return View::make('hello');
     }
 
