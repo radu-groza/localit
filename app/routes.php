@@ -15,6 +15,8 @@ Route::get('/', 'HomeController@showWelcome');
 
 /* users authentication */
 Route::get('user/login', 'UserController@login');
+Route::get('user/register', 'UserController@register');
+Route::post('user/login', 'UserController@login');
 
 Route::get('users', function() {
     return 'users!';
