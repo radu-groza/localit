@@ -11,6 +11,15 @@
         <input type="password" name="password" class="form-control" placeholder="Password">
     </div>
 </div>
+<div class="form-group">
+    <div class="col-md-offset-4 col-md-8">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="remember_me" value="1"{if $remember_me} checked{/if}/> {Lang::get('Remember me')}
+            </label>
+        </div>
+    </div>
+</div>
 <div class="form-group row">
     <div class="col-md-offset-4 col-md-8">
         <button type="submit" class="btn btn-success">{Lang::get('Sign in')}</button>

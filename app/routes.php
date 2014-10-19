@@ -14,10 +14,33 @@
 Route::get('/', 'HomeController@showWelcome');
 
 /* users authentication */
-Route::get('user/login', 'UserController@login');
-Route::get('user/register', 'UserController@register');
-Route::post('user/login', 'UserController@login');
+Route::get('user/login', 'UserController@login')->before('guest');
+Route::post('user/login', 'UserController@login')->before('guest');
+
+Route::get('user/register', 'UserController@register')->before('guest');
+Route::post('user/register', 'UserController@register')->before('guest');
+
+Route::get('user/logout', 'UserController@logout');
+Route::get('user/register', 'UserController@register')->before('guest');
+
+Route::get('user/profile', 'UserController@profile')->before('auth');
 
 Route::get('users', function() {
     return 'users!';
 });
+
+
+/* admin routes */
+Route::group(
+    array(
+        'prefix' => 'admin',
+        'before' => 'auth_admin',
+        'namespace' => 'Admin'
+    ),
+    function () {
+        Route::get('/', 'IndexController@home');
+        Route::get('dashboard', 'IndexController@home');
+        Route::any('profile', 'AdminController@profile');
+        Route::any('password', 'AdminController@password');
+    }
+);

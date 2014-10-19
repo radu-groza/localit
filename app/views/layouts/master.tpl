@@ -5,6 +5,8 @@
 
 {include file="menu/top.tpl"}
 
+{include file="page/messages.tpl"}
+
 <div class="container">
 
     {$content}
